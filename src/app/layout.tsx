@@ -18,7 +18,8 @@ export default function RootLayout({
 	return (
 		<html lang="vn">
 			<body className={montserrat.className}>
-				<main id='main'>
+				<main id="main" className="overflow-x-hidden"
+				>
 					<RootAnimationLayout >
 						{children}
 					</RootAnimationLayout>
