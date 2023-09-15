@@ -8,11 +8,12 @@
     --background-color: 255, 255, 255;
     --transition-time: 0.2s;
 }
-
 html {
     scroll-behavior: smooth;
+    -webkit-tap-higlight-color: transparent;
 }
-a, button {
+a,
+button {
     transition: var(--transition-time) ease-in !important;
 }
 
