@@ -38,7 +38,7 @@ export default function ServicesItemPage() {
         <div className="flex min-h-screen flex-col justify-between">
             <div className="mx-auto mt-10 lg:mt-16 max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
                 <div className="mx-auto flex flex-col lg:flex-row">
-                    <button onClick={() => router.push('/')} className="flex items-center justify-center rounded-md border border-transparentpx-4 py-2 text-base font-medium text-orange-600 shadow-sm bg-orange-100 sm:px-2"><ArrowBackIosNewRounded /></button>
+                    <button onClick={() => router.push('/')} className="hover:px-3 hover:py-3 flex items-center justify-center rounded-md border border-transparent py-2 text-base font-medium text-orange-600 shadow-sm bg-orange-100 sm:px-2"><ArrowBackIosNewRounded /></button>
                     {service.image ? (
                         <Image src={`${url}/assets/${service.image}`} width={405} height={405} alt="image" className="mt-10 lg:mt-0 lg:ml-10 rounded-lg object-cover min-w-full lg:min-w-0" />
                     )
