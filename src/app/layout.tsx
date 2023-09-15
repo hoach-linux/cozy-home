@@ -18,7 +18,7 @@ export default function RootLayout({
 	return (
 		<html lang="vn">
 			<body className={montserrat.className}>
-				<main>
+				<main id='main'>
 					<RootAnimationLayout >
 						{children}
 					</RootAnimationLayout>
