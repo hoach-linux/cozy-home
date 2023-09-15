@@ -30,8 +30,8 @@ export default function ServicesItemPage() {
     }
 
     useEffect(() => {
-        fetchData()
         window.scrollTo(0, 0)
+        fetchData()
     }, [])
 
     return (
