@@ -11,32 +11,32 @@ export const LayoutRoot = ({
     const pathname = usePathname()
 
     return (
-        <AnimatePresence>
-            <motion.div
-                key={pathname}
-                transition={{
-                    duration: 0.5,
-                }}
-                initial="initialState"
-                animate="animateState"
-                exit="exitState"
-                variants={{
-                    initialState: {
-                        opacity: 0,
-                        scale: 0.8
-                    },
-                    animateState: {
-                        opacity: 1,
-                        scale: 1
-                    },
-                    exitState: {
-                        opacity: 0,
-                        scale: 0.8,
-                    }
-                }}
-            >
-                {children}
-            </motion.div>
+        <AnimatePresence mode="wait">
+            {children && (
+                <motion.div
+                    key={pathname}
+                    initial="initialState"
+                    animate="animateState"
+                    exit="exitState"
+                    variants={{
+                        initialState: {
+                            opacity: 0,
+                        },
+                        animateState: {
+                            opacity: 1,
+                        },
+                        exitState: {
+                            opacity: 0,
+                        }
+                    }}
+                    transition={{
+                        duration: 0.5,
+
+                    }}
+                >
+                    {children}
+                </motion.div>
+            )}
         </AnimatePresence>
     )
 }
