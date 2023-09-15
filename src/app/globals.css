@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --text-color: #000;
+    --main-color: #f97316;
+    --background-color: 255, 255, 255;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: rgb(var(--background-color));
+}
