@@ -1,4 +1,4 @@
-import { LayoutRoot } from '@/layouts/LayoutRoot'
+import { RootAnimationLayout } from '@/layouts/RootAnimationLayout'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Montserrat } from 'next/font/google'
@@ -19,9 +19,9 @@ export default function RootLayout({
 		<html lang="vn">
 			<body className={montserrat.className}>
 				<main>
-					<LayoutRoot>
+					<RootAnimationLayout >
 						{children}
-					</LayoutRoot>
+					</RootAnimationLayout>
 				</main>
 				<footer className='center mt-5 flex justify-center space-x-4 bg-[#E7E8EF] p-4 text-xs'>
 					<p>Copyright © 2023 Cozy Home</p>

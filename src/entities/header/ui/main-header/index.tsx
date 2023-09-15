@@ -1,6 +1,7 @@
 import React from "react"
 import styles from "./styles.module.scss"
 import Link from "next/link"
+import { ArrowForwardIosRounded } from "@mui/icons-material"
 
 export function MainHeader() {
     return (
@@ -18,8 +19,9 @@ export function MainHeader() {
                     </span>
                 </h1>
                 <div className="mx-auto mt-10 max-w-xs sm:flex sm:max-w-2xl sm:justify-center">
-                    <Link href="#services" className="flex items-center justify-center rounded-md border border-transparent bg-white px-4 py-3 text-base font-medium text-orange-600 shadow-sm hover:bg-orange-100 sm:px-8">
-                        Xem dịch vụ
+                    <Link href="#services" className="group flex items-center transition-all duration-200 justify-center rounded-md border border-transparent bg-white px-4 py-3 text-base font-medium text-orange-600 shadow-sm hover:bg-orange-100 sm:px-6">
+                        <span className="group-hover:mr-4 transition-all duration-200">Xem dịch vụ</span>
+                        <ArrowForwardIosRounded className="hidden opacity-0 group-hover:block group-hover:opacity-100 transition-opacity duration-200" />
                     </Link>
                 </div>
             </div>
