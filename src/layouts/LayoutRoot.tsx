@@ -15,8 +15,7 @@ export const LayoutRoot = ({
             <motion.div
                 key={pathname}
                 transition={{
-                    duration: 0.7,
-                    ease: "easeIn"
+                    duration: 0.5,
                 }}
                 initial="initialState"
                 animate="animateState"
@@ -24,14 +23,15 @@ export const LayoutRoot = ({
                 variants={{
                     initialState: {
                         opacity: 0,
-                        clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)"
+                        scale: 0.8
                     },
                     animateState: {
                         opacity: 1,
-                        clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)"
+                        scale: 1
                     },
                     exitState: {
-                        clipPath: "polygon(50% 0, 50% 0, 50% 100%, 50% 100%)"
+                        opacity: 0,
+                        scale: 0.8,
                     }
                 }}
             >

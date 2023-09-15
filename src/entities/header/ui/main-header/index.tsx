@@ -1,5 +1,6 @@
 import React from "react"
 import styles from "./styles.module.scss"
+import Link from "next/link"
 
 export function MainHeader() {
     return (
@@ -17,9 +18,9 @@ export function MainHeader() {
                     </span>
                 </h1>
                 <div className="mx-auto mt-10 max-w-xs sm:flex sm:max-w-2xl sm:justify-center">
-                    <a href="#services" className="flex items-center justify-center rounded-md border border-transparent bg-white px-4 py-3 text-base font-medium text-orange-600 shadow-sm hover:bg-orange-100 sm:px-8">
+                    <Link href="#services" className="flex items-center justify-center rounded-md border border-transparent bg-white px-4 py-3 text-base font-medium text-orange-600 shadow-sm hover:bg-orange-100 sm:px-8">
                         Xem dịch vụ
-                    </a>
+                    </Link>
                 </div>
             </div>
         </header>

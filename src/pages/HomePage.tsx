@@ -1,9 +1,19 @@
 import { HomePageHeader } from "@/widgets/home-page-header";
 import Image from "next/image";
 import AnimalCare from "@/app/assets/animal-care.png"
+import Link from "next/link";
 
 export default function HomePage() {
-    const services = ["Tắm thú cưng", "Kiểm tra sức khỏe", "Tắm thú cưng", "Kiểm tra sức khỏe", "Tắm thú cưng", "Kiểm tra sức khỏe", "Tắm thú cưng", "Kiểm tra sức khỏe",]
+    const services = [
+        { name: "Tắm thú cưng", link: "washing" },
+        { name: "Kiểm tra sức khỏe", link: "health-check" },
+        { name: "Tắm thú cưng", link: "washing" },
+        { name: "Kiểm tra sức khỏe", link: "health-check" },
+        { name: "Tắm thú cưng", link: "washing" },
+        { name: "Kiểm tra sức khỏe", link: "health-check" },
+        { name: "Tắm thú cưng", link: "washing" },
+        { name: "Kiểm tra sức khỏe", link: "health-check" },
+    ]
 
     return (
         <div className="min-h-screen">
@@ -17,12 +27,12 @@ export default function HomePage() {
                     </div>
                 </div>
                 <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-                    {services.map(() => (
-                        <a href="#">
+                    {services.map((item) => (
+                        <Link href={`/services/${item.link}?params=${item.name}`}>
                             <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8 flex justify-center items-center h-60">
                                 <Image src={AnimalCare} alt={"pet"} width={64} height={64} />
                             </div>
-                        </a>
+                        </Link>
                     ))}
                 </div>
             </div>
