@@ -1,19 +1,33 @@
 import { HomePageHeader } from "@/widgets/home-page-header";
 import Image from "next/image";
-import AnimalCare from "@/app/assets/animal-care.png"
 import Link from "next/link";
 
-export default function HomePage() {
-    const services = [
-        { name: "Tắm thú cưng", link: "washing" },
-        { name: "Kiểm tra sức khỏe", link: "health-check" },
-        { name: "Tắm thú cưng", link: "washing" },
-        { name: "Kiểm tra sức khỏe", link: "health-check" },
-        { name: "Tắm thú cưng", link: "washing" },
-        { name: "Kiểm tra sức khỏe", link: "health-check" },
-        { name: "Tắm thú cưng", link: "washing" },
-        { name: "Kiểm tra sức khỏe", link: "health-check" },
-    ]
+async function getData(url: string) {
+    const res = await fetch(`${url}/items/services`, {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    // The return value is *not* serialized
+    // You can return Date, Map, Set, etc.
+
+    if (!res.ok) {
+        // This will activate the closest `error.js` Error Boundary
+        throw new Error('Failed to fetch data')
+    }
+
+    return res.json()
+
+}
+
+export default async function HomePage() {
+    const url = process.env.SERVER_URL
+
+    if (url === undefined) return
+
+    const services = await getData(url)
+
+    console.log(services.data)
 
     return (
         <div className="min-h-screen">
@@ -27,10 +41,14 @@ export default function HomePage() {
                     </div>
                 </div>
                 <div className="grid grid-cols-2 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-                    {services.map((item) => (
-                        <Link href={`/services/${item.link}?params=${item.name}`}>
+                    {services.data.map((item: { title: string; id: string, image: string; price: number }) => (
+                        <Link href={`/services/${item.id}`} key={item.id}>
                             <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8 flex justify-center items-center h-52 sm:h-60">
-                                <Image src={AnimalCare} alt={"pet"} width={64} height={64} />
+                                <Image src={`${url}/assets/${item.image}`} alt={"pet"} width={350} height={350} className="min-w-full min-h-full object-cover" />
+                            </div>
+                            <div className="mt-4 flex items-left flex-col md:flex-row md:justify-between text-base font-medium text-gray-900">
+                                <h3>{item.title}</h3>
+                                <p>${item.price}</p>
                             </div>
                         </Link>
                     ))}
