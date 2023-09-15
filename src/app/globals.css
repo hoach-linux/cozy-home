@@ -10,6 +10,8 @@
 }
 html {
     scroll-behavior: smooth;
+}
+* {
     -webkit-tap-higlight-color: transparent;
 }
 a,
