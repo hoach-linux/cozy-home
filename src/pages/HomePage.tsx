@@ -2,7 +2,7 @@ import { HomePageHeader } from "@/widgets/home-page-header";
 import Image from "next/image";
 import AnimalCare from "@/app/assets/animal-care.png"
 
-export function HomePage() {
+export default function HomePage() {
     const services = ["Tắm thú cưng", "Kiểm tra sức khỏe", "Tắm thú cưng", "Kiểm tra sức khỏe", "Tắm thú cưng", "Kiểm tra sức khỏe", "Tắm thú cưng", "Kiểm tra sức khỏe",]
 
     return (
