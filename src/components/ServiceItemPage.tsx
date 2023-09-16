@@ -57,7 +57,7 @@ export default function ServicesItemPage() {
                         <p className="max-w-xl mb-5">
                             {service.description}
                         </p>
-                        <Button variant="outlined" color="warning">Đất dịch vụ</Button>
+                        <Button onClick={() => router.push("/order")} variant="contained" size="large" className="bg-orange-500" color="warning" >Đất dịch vụ</Button>
                     </div>
                 </div>
             </div>

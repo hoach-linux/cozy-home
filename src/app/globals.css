@@ -16,7 +16,7 @@ html {
 }
 a,
 button {
-    transition: var(--transition-time) ease-in !important;
+    transition: var(--transition-time) !important;
 }
 
 body {
