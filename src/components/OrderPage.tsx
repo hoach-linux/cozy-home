@@ -38,6 +38,7 @@ export default function OrderPage() {
                 await axios.post(`${url}/items/pet_service_orders`, orderInfo)
 
                 setLoading(false)
+                router.push("/finish")
             }
         } catch (error) {
             console.log(error)

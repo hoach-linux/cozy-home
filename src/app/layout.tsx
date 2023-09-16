@@ -1,5 +1,5 @@
 import { RootAnimationLayout } from '@/layouts/RootAnimationLayout'
-import './globals.css'
+import './globals.scss'
 import type { Metadata } from 'next'
 import { Montserrat } from 'next/font/google'
 
