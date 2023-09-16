@@ -16,7 +16,7 @@ html {
 }
 a,
 button {
-    transition: var(--transition-time) !important;
+    transition: var(--transition-time);
 }
 
 body {
