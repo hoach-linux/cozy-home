@@ -62,7 +62,7 @@ export default function ServicesItemPage() {
                         <Button onClick={() => {
                             setServicesOrder(service)
                             router.push("/order")
-                        }} variant="contained" size="large" className="bg-orange-500" color="warning" >Đặt dịch vụ</Button>
+                        }} variant="contained" size="large" className="bg-orange-500 !shadow-none" color="warning" >Đặt dịch vụ</Button>
                     </div>
                 </div>
             </div>
