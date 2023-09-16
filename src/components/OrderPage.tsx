@@ -73,9 +73,9 @@ export default function OrderPage() {
 
                 await axios.post(`${url}/items/pet_service_orders`, orderInfo)
 
-                setLoading(false)
                 setIsValidate(false)
                 router.push("/finish")
+                setLoading(false)
             }
         } catch (error) {
             console.log(error)
