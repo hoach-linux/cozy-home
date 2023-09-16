@@ -19,7 +19,7 @@ export function MainHeader() {
                     </span>
                 </h1>
                 <div className="mx-auto mt-10 max-w-xs sm:flex sm:max-w-2xl sm:justify-center">
-                    <Link href="#services" className="group flex items-center transition-all duration-200 justify-center rounded-md border border-transparent bg-white px-4 py-3 text-base font-medium text-orange-600 shadow-sm hover:bg-orange-100 sm:px-6">
+                    <Link href="#services" className="group flex items-center transition-all duration-200 justify-center rounded-md border border-transparent bg-white px-4 py-3 text-base font-medium text-orange-600 shadow-sm hover:bg-orange-100 sm:px-6 animate-bounce hover:animate-none">
                         <span className="group-hover:mr-4 transition-all duration-200">Xem dịch vụ</span>
                         <ArrowForwardIosRounded className="!hidden group-hover:!block transition-all duration-200" />
                     </Link>
