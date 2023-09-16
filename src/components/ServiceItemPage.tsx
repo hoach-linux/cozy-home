@@ -32,7 +32,6 @@ export default function ServicesItemPage() {
     }
 
     useEffect(() => {
-        window.scrollTo(0, 0)
         fetchData()
     }, [])
 
