@@ -6,12 +6,14 @@ import axios from "axios"
 import { Suspense, useEffect, useState } from "react";
 import { Button, Skeleton } from "@mui/material";
 import { ArrowBackIosNewRounded } from "@mui/icons-material";
+import useStore from "@/app/providers/store/useStore";
 
 export default function ServicesItemPage() {
-    const url = "https://directus.hoachnt.com"
+    const url = process.env.NEXT_PUBLIC_SERVER_URL
     const pathname = usePathname()
     const [service, setService] = useState<any>({})
     const router = useRouter()
+    const setServicesOrder = useStore((state: any) => state.setServicesOrder);
 
     async function fetchData() {
         try {
@@ -57,7 +59,10 @@ export default function ServicesItemPage() {
                         <p className="max-w-xl mb-5">
                             {service.description}
                         </p>
-                        <Button onClick={() => router.push("/order")} variant="contained" size="large" className="bg-orange-500" color="warning" >Đặt dịch vụ</Button>
+                        <Button onClick={() => {
+                            setServicesOrder(service)
+                            router.push("/order")
+                        }} variant="contained" size="large" className="bg-orange-500" color="warning" >Đặt dịch vụ</Button>
                     </div>
                 </div>
             </div>

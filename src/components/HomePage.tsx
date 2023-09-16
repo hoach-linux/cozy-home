@@ -21,7 +21,7 @@ async function getData(url: string) {
 }
 
 export default async function HomePage() {
-    const url = process.env.SERVER_URL
+    const url = process.env.NEXT_PUBLIC_SERVER_URL
 
     if (url === undefined) return
 
