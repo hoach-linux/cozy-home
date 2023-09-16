@@ -21,7 +21,7 @@ export default function OrderPage() {
             <TextField label="Địa chỉ" type="text" fullWidth margin="dense" color="warning" onChange={(event) => setOrderInfo({ ...orderInfo, address: event.target.value })} />
             <TextField label="E-mail" type="email" fullWidth margin="dense" color="warning" onChange={(event) => setOrderInfo({ ...orderInfo, email: event.target.value })} />
             <TextField label="Số điện thoại" type="number" fullWidth margin="dense" color="warning" onChange={(event) => setOrderInfo({ ...orderInfo, numberPhone: +event.target.value })} />
-            <Button fullWidth variant="contained" size="large" color="warning" className="mt-2 bg-orange-500 py-3">Đặt dịch vụ</Button>
+            <Button fullWidth variant="contained" size="large" color="warning" className="!mt-2 bg-orange-500 !py-3">Đặt dịch vụ</Button>
         </section>
     )
 }
