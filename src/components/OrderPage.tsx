@@ -13,6 +13,13 @@ export default function OrderPage() {
     const router = useRouter();
     const servicesOrder = useStore((state: any) => state.servicesOrder)
     const [loading, setLoading] = useState(false)
+    const [isValidate, setIsValidate] = useState(false)
+    const [validationError, setValidationError] = useState({
+        name: false,
+        address: false,
+        email: false,
+        numberPhone: false,
+    })
     const [orderInfo, setOrderInfo] = useState({
         name: "",
         address: "",
@@ -29,15 +36,45 @@ export default function OrderPage() {
     useEffect(() => {
         if (servicesOrder.length < 1) return router.push("/")
     }, [])
+    useEffect(() => {
+        validationErrorFunc()
+    }, [orderInfo, isValidate])
 
+    function validationErrorFunc() {
+        if (!isValidate) return
+
+        if (orderInfo.name === "") {
+            setValidationError((prevValidationState) => ({ ...prevValidationState, name: true }))
+        } else {
+            setValidationError((prevValidationState) => ({ ...prevValidationState, name: false }))
+        }
+        if (orderInfo.address === "") {
+            setValidationError((prevValidationState) => ({ ...prevValidationState, address: true }))
+        } else {
+            setValidationError((prevValidationState) => ({ ...prevValidationState, address: false }))
+        }
+        if (orderInfo.email === "") {
+            setValidationError((prevValidationState) => ({ ...prevValidationState, email: true }))
+        } else {
+            setValidationError((prevValidationState) => ({ ...prevValidationState, email: false }))
+        }
+        if (String(orderInfo.numberPhone).length <= 8) {
+            setValidationError((prevValidationState) => ({ ...prevValidationState, numberPhone: true }))
+        } else {
+            setValidationError((prevValidationState) => ({ ...prevValidationState, numberPhone: false }))
+        }
+    }
     async function orderingService() {
         try {
+            setIsValidate(true)
+
             if (orderInfoValidation()) {
                 setLoading(true)
 
                 await axios.post(`${url}/items/pet_service_orders`, orderInfo)
 
                 setLoading(false)
+                setIsValidate(false)
                 router.push("/finish")
             }
         } catch (error) {
@@ -63,6 +100,8 @@ export default function OrderPage() {
                 onChange={(event) =>
                     setOrderInfo({ ...orderInfo, name: event.target.value })
                 }
+                error={validationError.name}
+                helperText={validationError.name && <>Bạn chưa viết: Họ, tên</>}
             />
             <TextField
                 label="Địa chỉ"
@@ -74,6 +113,8 @@ export default function OrderPage() {
                 onChange={(event) =>
                     setOrderInfo({ ...orderInfo, address: event.target.value })
                 }
+                error={validationError.address}
+                helperText={validationError.address && <>Bạn chưa viết: Địa chỉ</>}
             />
             <TextField
                 label="E-mail"
@@ -85,6 +126,8 @@ export default function OrderPage() {
                 onChange={(event) =>
                     setOrderInfo({ ...orderInfo, email: event.target.value })
                 }
+                error={validationError.email}
+                helperText={validationError.email && <>Bạn chưa viết: E-mail</>}
             />
             <TextField
                 label="Số điện thoại"
@@ -99,6 +142,8 @@ export default function OrderPage() {
                         numberPhone: +event.target.value,
                     })
                 }
+                error={validationError.numberPhone}
+                helperText={validationError.numberPhone && <>Bạn chưa viết: Số điện thoại</>}
             />
             <LoadingButton
                 loading={loading}
