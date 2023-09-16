@@ -76,6 +76,7 @@ export default function OrderPage() {
                 setIsValidate(false)
                 router.push("/finish")
                 setLoading(false)
+
             }
         } catch (error) {
             console.log(error)
