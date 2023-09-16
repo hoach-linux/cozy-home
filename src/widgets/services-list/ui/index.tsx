@@ -36,7 +36,7 @@ export default function ServicesList({ services }: { services: IService[] }) {
     const url = process.env.NEXT_PUBLIC_SERVER_URL
 
     return (
-        <motion.div variants={variants} initial="hidden" animate="show" className="grid grid-cols-2 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+        <motion.div variants={variants} initial="hidden" animate="show" className="grid grid-cols-2 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8 overflow-y-hidden">
             {services.map((item: { title: string; id: string, image: string; price: number }) => (
                 <motion.div variants={images} key={item.id}>
                     <Link href={`/services/${item.id}`} className="group">
