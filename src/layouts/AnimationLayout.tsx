@@ -15,7 +15,7 @@ export const AnimationLayout = ({
             key={pathname}
             initial={{ x: 250, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
-            exit={{ x: "-100%", }}
+            exit={{ x: 250, opacity: 0 }}
             transition={{
                 type: "spring",
                 stiffness: 160,

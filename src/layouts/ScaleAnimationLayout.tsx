@@ -13,9 +13,9 @@ export const ScaleAnimationLayout = ({
     return (
         <motion.div
             key={pathname}
-            initial={{ scale: 0.5, opacity: 0 }}
+            initial={{ scale: 0.5, opacity: 0.5 }}
             animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.5, opacity: 0 }}
+            exit={{ scale: 0.5, opacity: 0.5 }}
             transition={{
                 type: "spring",
                 stiffness: 160,
