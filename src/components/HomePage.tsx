@@ -1,7 +1,7 @@
 import { HomePageHeader } from "@/widgets/home-page-header";
 import { ServicesList } from "@/widgets/services-list";
 
-async function getData(url: string) {
+export async function getServicesList(url: string) {
     const res = await fetch(`${url}/items/services`, {
         next: {
             revalidate: 3600
@@ -23,7 +23,7 @@ export default async function HomePage() {
 
     if (url === undefined) return
 
-    const services = await getData(url)
+    const services = await getServicesList(url)
 
     return (
         <div className="min-h-screen">
