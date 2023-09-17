@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import axios from "axios"
-import { Suspense, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Skeleton } from "@mui/material";
 import { ArrowBackIosNewRounded } from "@mui/icons-material";
 import useStore from "@/app/providers/store/useStore";
