@@ -1,7 +1,19 @@
-import { ArrowBackIosNewRounded, CheckCircle } from "@mui/icons-material";
+'use client'
+
+import useStore from "@/app/providers/store/useStore";
+import { CheckCircle } from "@mui/icons-material";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function FinishPage() {
+    const orderFinished = useStore((state: any) => (state.orderFinished))
+    const router = useRouter()
+
+    useEffect(() => {
+        if (!orderFinished) return router.push("/")
+    }, [])
+
     return (
         <section className="min-h-screen flex justify-center items-center px-2">
             <div className="flex items-center flex-col text-center">

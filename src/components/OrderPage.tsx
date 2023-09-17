@@ -12,6 +12,7 @@ export default function OrderPage() {
     const url = process.env.NEXT_PUBLIC_SERVER_URL
     const router = useRouter();
     const servicesOrder = useStore((state: any) => state.servicesOrder)
+    const setOrderFinished = useStore((state: any) => state.setOrderFinished)
     const [loading, setLoading] = useState(false)
     const [isValidate, setIsValidate] = useState(false)
     const [validationError, setValidationError] = useState({
@@ -74,7 +75,10 @@ export default function OrderPage() {
                 await axios.post(`${url}/items/pet_service_orders`, orderInfo)
 
                 setIsValidate(false)
+                setOrderFinished(true)
+
                 router.push("/finish")
+                
                 setLoading(false)
 
             }
