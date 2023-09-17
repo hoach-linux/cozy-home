@@ -6,14 +6,9 @@ import { ReactNode, useEffect } from "react"
 
 
 export const RootAnimationLayout = ({ children }: { children: ReactNode }) => {
-    const pathname = usePathname()
-    
-    useEffect(() => {
-        window.scrollTo(0, 0)
-    }, [pathname])
 
     return (
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="wait" onExitComplete={() => window.scrollTo(0, 0)}>
             {children}
         </AnimatePresence>
     )
