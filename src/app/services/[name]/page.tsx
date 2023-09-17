@@ -1,4 +1,4 @@
-import { AnimationLayout } from "@/layouts/AnimationLayout";
+import { AnimationLayout } from "@/app/layouts/AnimationLayout";
 import ServicesItemPage from "@/components/ServiceItemPage";
 import Link from "next/link";
 import { ArrowBackIosNewRounded } from "@mui/icons-material";

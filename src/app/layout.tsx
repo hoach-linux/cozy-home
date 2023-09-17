@@ -1,4 +1,4 @@
-import { RootAnimationLayout } from '@/layouts/RootAnimationLayout'
+import { RootAnimationLayout } from '@/app/layouts/RootAnimationLayout'
 import './globals.scss'
 import type { Metadata } from 'next'
 import { Montserrat } from 'next/font/google'

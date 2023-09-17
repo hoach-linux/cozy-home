@@ -1,5 +1,5 @@
 import OrderPage from "@/components/OrderPage";
-import { ScaleAnimationLayout } from "@/layouts/ScaleAnimationLayout";
+import { ScaleAnimationLayout } from "@/app/layouts/ScaleAnimationLayout";
 
 export default function Page() {
     return (

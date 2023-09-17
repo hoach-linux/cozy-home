@@ -1,5 +1,5 @@
 import FinishPage from "@/components/FinishPage";
-import { ScaleAnimationLayout } from "@/layouts/ScaleAnimationLayout";
+import { ScaleAnimationLayout } from "@/app/layouts/ScaleAnimationLayout";
 
 
 export default function Page() {
