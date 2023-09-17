@@ -25,11 +25,11 @@ export default function OrderPage() {
         name: "",
         address: "",
         email: "",
-        numberPhone: 0,
+        numberPhone: "",
         services: servicesOrder
     });
     const orderInfoValidation = () => {
-        if (orderInfo.name !== "" && orderInfo.address !== "" && orderInfo.email !== "" && String(orderInfo.numberPhone).length >= 8) return true
+        if (orderInfo.name !== "" && orderInfo.address !== "" && orderInfo.email !== "" && (orderInfo.numberPhone.length >= 8 && !Number.isNaN(Number(orderInfo.numberPhone)))) return true
 
         return false
     }
@@ -59,7 +59,7 @@ export default function OrderPage() {
         } else {
             setValidationError((prevValidationState) => ({ ...prevValidationState, email: false }))
         }
-        if (String(orderInfo.numberPhone).length <= 8) {
+        if (orderInfo.numberPhone.length <= 8 || Number.isNaN(Number(orderInfo.numberPhone))) {
             setValidationError((prevValidationState) => ({ ...prevValidationState, numberPhone: true }))
         } else {
             setValidationError((prevValidationState) => ({ ...prevValidationState, numberPhone: false }))
@@ -78,7 +78,7 @@ export default function OrderPage() {
                 setOrderFinished(true)
 
                 router.push("/finish")
-                
+
                 setLoading(false)
 
             }
@@ -136,7 +136,7 @@ export default function OrderPage() {
             />
             <TextField
                 label="Số điện thoại"
-                type="number"
+                type="tel"
                 fullWidth
                 margin="dense"
                 color="warning"
@@ -144,11 +144,11 @@ export default function OrderPage() {
                 onChange={(event) =>
                     setOrderInfo({
                         ...orderInfo,
-                        numberPhone: +event.target.value,
+                        numberPhone: event.target.value,
                     })
                 }
                 error={validationError.numberPhone}
-                helperText={validationError.numberPhone && <>Bạn chưa viết: Số điện thoại</>}
+                helperText={validationError.numberPhone && <>Bạn chưa viết: Số điện thoại, hoặc số điện thoại không hợp lệ</>}
             />
             <LoadingButton
                 loading={loading}
