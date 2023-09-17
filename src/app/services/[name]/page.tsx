@@ -3,7 +3,7 @@ import ServicesItemPage from "@/components/ServiceItemPage";
 import Link from "next/link";
 import { ArrowBackIosNewRounded } from "@mui/icons-material";
 
-export default function ServiceItem() {
+export default function Page() {
 
     return (
         <div>
