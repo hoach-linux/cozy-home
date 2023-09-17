@@ -60,11 +60,16 @@ export default function ServicesItemPage() {
                             <h1 className="mt-3 text-4xl font-bold text-gray-500 sm:text-3xl sm:tracking-tight lg:text-3xl">
                                 ${service.price}
                             </h1>
-                        ) : <Skeleton variant="rounded" className="!mt-3">
+                        ) : service.price === 0 ? (
                             <h1 className="mt-3 text-4xl font-bold text-gray-500 sm:text-3xl sm:tracking-tight lg:text-3xl">
-                                service price
+                                Miễn phí
                             </h1>
-                        </Skeleton>}
+                        ) :
+                            <Skeleton variant="rounded" className="!mt-3">
+                                <h1 className="mt-3 text-4xl font-bold text-gray-500 sm:text-3xl sm:tracking-tight lg:text-3xl">
+                                    service price
+                                </h1>
+                            </Skeleton>}
                         <div className="mt-10 mb-5 border-t border-gray-200 pt-10 font-bold">
                             Miêu tả
                         </div>

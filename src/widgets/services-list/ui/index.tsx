@@ -43,9 +43,12 @@ export default function ServicesList({ services }: { services: IService[] }) {
                         <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden group-hover:rounded-3xl transition-all duration-200 rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8 flex justify-center items-center h-52 sm:h-60">
                             <Image src={`${url}/assets/${item.image}`} alt={"pet"} width={350} height={350} className="min-w-full min-h-full object-cover" />
                         </div>
-                        <div className="mt-4 flex items-left flex-col md:flex-row md:justify-between text-base font-medium text-gray-900">
+                        <div className="mt-4 flex items-left flex-col md:flex-row md:justify-between md:items-center text-base font-medium text-gray-900">
                             <h3>{item.title}</h3>
-                            <p>${item.price}</p>
+                            {item.price === 0 ? (
+                                <p className="bg-green-500 w-fit md:min-w-fit text-white p-1 rounded-md">Miễn phí</p>
+                            ) : <p>${item.price}</p>
+                            }
                         </div>
                     </Link>
                 </motion.div>
