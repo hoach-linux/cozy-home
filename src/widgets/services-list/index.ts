@@ -1,3 +1,4 @@
 import ServicesList from "./ui";
+import { variants, children } from "./ui"
 
-export { ServicesList }
+export { ServicesList, variants, children }
