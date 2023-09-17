@@ -29,7 +29,7 @@ export default function OrderPage() {
         services: servicesOrder
     });
     const orderInfoValidation = () => {
-        if (orderInfo.name !== "" && orderInfo.address !== "" && orderInfo.email !== "" && (orderInfo.numberPhone.length >= 8 && !Number.isNaN(Number(orderInfo.numberPhone)))) return true
+        if (orderInfo.name !== "" && orderInfo.address !== "" && orderInfo.email !== "" && (orderInfo.numberPhone.length >= 8 && !Number.isNaN(Number(orderInfo.numberPhone)) && +orderInfo.numberPhone[0] === 0)) return true
 
         return false
     }
@@ -59,7 +59,7 @@ export default function OrderPage() {
         } else {
             setValidationError((prevValidationState) => ({ ...prevValidationState, email: false }))
         }
-        if (orderInfo.numberPhone.length <= 8 || Number.isNaN(Number(orderInfo.numberPhone))) {
+        if (orderInfo.numberPhone.length <= 8 || Number.isNaN(Number(orderInfo.numberPhone)) || +orderInfo.numberPhone[0] !== 0) {
             setValidationError((prevValidationState) => ({ ...prevValidationState, numberPhone: true }))
         } else {
             setValidationError((prevValidationState) => ({ ...prevValidationState, numberPhone: false }))
