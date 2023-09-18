@@ -15,10 +15,8 @@ export default function ServicesItemPage() {
     const router = useRouter()
     const setServicesOrder = useStore((state: any) => state.setServicesOrder);
 
-    async function fetchData() {
+    async function getServiceById(url: string, id: string) {
         try {
-            if (url === undefined || pathname === null) return
-
             const response = await axios(`${url}/items${pathname}`, {
                 headers: {
                     'Content-Type': 'application/json'
@@ -32,7 +30,9 @@ export default function ServicesItemPage() {
     }
 
     useEffect(() => {
-        fetchData()
+        if (url === undefined || pathname === null) return
+
+        getServiceById(url, pathname)
     }, [])
 
     return (

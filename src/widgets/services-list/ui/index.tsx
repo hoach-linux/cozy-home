@@ -28,7 +28,7 @@ export const children = {
         }
     }
 }
-interface IService {
+export interface IService {
     title: string; id: string, image: string; price: number
 }
 
