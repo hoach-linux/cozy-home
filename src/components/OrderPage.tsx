@@ -155,8 +155,7 @@ export default function OrderPage() {
                 fullWidth
                 variant="contained"
                 size="large"
-                color="warning"
-                className="!mt-2 bg-orange-500 !py-3 !shadow-none"
+                className="!mt-2 !bg-orange-500 hover:!bg-orange-600 !py-3 !shadow-none"
                 onClick={orderingService}
             >
                 Đặt dịch vụ
