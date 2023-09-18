@@ -46,7 +46,7 @@ export default function ServicesList({ services }: { services: IService[] }) {
                         <div className="mt-4 flex items-left flex-col md:flex-row md:justify-between md:items-center text-base font-medium text-gray-900">
                             <h3>{item.title}</h3>
                             {item.price === 0 ? (
-                                <p className="bg-green-500 w-fit md:min-w-fit text-white p-1 rounded-md">Miễn phí</p>
+                                <p className="bg-blue-500 w-fit md:min-w-fit text-white p-1 rounded-md">Miễn phí</p>
                             ) : <p>${item.price}</p>
                             }
                         </div>
