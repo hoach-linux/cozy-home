@@ -2,6 +2,8 @@ import { RootAnimationLayout } from '@/app/layouts/RootAnimationLayout'
 import './globals.scss'
 import type { Metadata } from 'next'
 import { Montserrat } from 'next/font/google'
+import NavigationEventsLayout from './layouts/NavigationEventsLayout'
+import { Suspense } from 'react'
 
 const montserrat = Montserrat({ subsets: ['latin'] })
 
@@ -27,6 +29,9 @@ export default function RootLayout({
 				<footer className='center mt-5 flex justify-center space-x-4 bg-[#E7E8EF] p-4 text-xs'>
 					<p>Copyright © 2023 Cozy Home</p>
 				</footer>
+				<Suspense fallback={null}>
+					<NavigationEventsLayout />
+				</Suspense>
 			</body>
 		</html>
 	)

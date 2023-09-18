@@ -33,10 +33,6 @@ export default function OrderPage() {
 
         return false
     }
-
-    useEffect(() => {
-        if (servicesOrder.length < 1) return router.push("/")
-    }, [])
     useEffect(() => {
         validationErrorFunc()
     }, [orderInfo, isValidate])
